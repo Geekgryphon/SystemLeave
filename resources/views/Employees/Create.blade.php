@@ -10,8 +10,8 @@
     工作歷程 - Account, JobID, BeginDate, EndDate
     職位 Job - Title, EngTitle, Used, Seq
 
-    縣市 -  PostalCode, Name, Used, Seq 
-    鄉鎮 -  PostalCode, CityID, Name, Used, Seq
+    ✔️ 縣市 City -  PostalCode, Name, Used, Seq 
+    ✔️ 鄉鎮 CityArea -  PostalCode, CityID, Name, Used, Seq
     街道 -  CityAreaID, Name, Used, Seq
     
     請假單 - LeaveFormNo, LeaveKindID, LeaveFormReason, ApplyEmployee, BeginTime, EndTime
