@@ -10,7 +10,7 @@
     ✔️ 工作歷程 JobHistory - Account, JobPositionID, BeginDate, EndDate
     ✔️ 職位 JobPosition - Title, EngTitle, Used, Seq
 
-    ✔️ 縣市 City -  PostalCode, Name, Used, Seq 
+    ✔️ 縣市 Cities -  PostalCode, Name, Used, Seq 
     ✔️ 鄉鎮 CityArea -  PostalCode, CityID, Name, Used, Seq
     ✔️ 街道 CityStreet -  CityAreaID, Name, Used, Seq
     
@@ -22,6 +22,11 @@
 
     簽到退
     計算該月的上班時數
+
+    1. 新增，檢視，編輯，刪除 如何實作
+    2. 縣市資料繼續補
+    3. 
+
     
     <!-- 開發筆記 -->
 
