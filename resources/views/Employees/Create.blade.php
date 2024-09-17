@@ -32,6 +32,10 @@
 
     1. 如果是單純單一參數用 - 單一張表儲存就好，如果會有關連或其他相依性就開各自的表來儲存
     2. 同一個流程的資料表名稱最好取相似的名字
+    3. 產生專案密鑰 php artisan key:generate
+    4. php artisan db:seed --class=citiesSeeder
+    5. php artisan migrate:refresh
+    6. 
 
 
 </body>

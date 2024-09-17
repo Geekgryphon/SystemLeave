@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CitiesSeeder extends Seeder
+class citiesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class CitiesSeeder extends Seeder
     public function run(): void
     {
 
-        DB::table('Cities')->truncate();
+        DB::table('cities')->truncate();
 
         $cities = [
             ['PostalCode' => '','Name' => '基隆市', 'Seq' => 1, 'Used' => 1],
@@ -41,9 +41,9 @@ class CitiesSeeder extends Seeder
             ['PostalCode' => '','Name' => '連江縣', 'Seq' => 22, 'Used' => 1]
         ];
 
-        DB::table('Cities')->insert($cities);
+        DB::table('cities')->insert($cities);
 
-        DB::table('CityArea')->truncate();
+        DB::table('cityareas')->truncate();
 
         $cityarea = [
             // 基隆市
@@ -302,7 +302,7 @@ class CitiesSeeder extends Seeder
             ['PostalCode' => '745', 'CityID' => '14', 'Name' => '安定區', 'Seq' => 37, 'Used' => 1],
         ];
 
-        DB::table('CityArea')->insert($cityarea);
+        DB::table('cityareas')->insert($cityarea);
 
         
     }
