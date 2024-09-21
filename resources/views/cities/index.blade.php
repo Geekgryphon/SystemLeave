@@ -3,23 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>City List</title>
+    <title>縣市新增</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
-    <h1>City List</h1>
+    <h1>縣市新增</h1>
 
-    @if (session('success'))
+    <!-- @if (session('success'))
         <p>{{ session('success') }}</p>
-    @endif
+    @endif -->
 
-    <table border="1">
+
+    <form action="{{ route('cities.index') }}" method="GET">
+        <input type="text" name="Name" value="{{ request('Name') }}">
+        <button type="submit">Search</button>
+    </form>
+    <br/>
+
+    <table>
         <thead>
             <tr>
-                <th>Postal Code</th>
-                <th>Name</th>
-                <th>Used</th>
-                <th>Seq</th>
-                <th>Actions</th>
+                <th>縣市郵遞區號</th>
+                <th>縣市名稱</th>
+                <th>使用中</th>
+                <th>排列順序</th>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +35,7 @@
                 <tr>
                     <td>{{ $city->PostalCode }}</td>
                     <td>{{ $city->Name }}</td>
-                    <td>{{ $city->Used ? 'Yes' : 'No' }}</td>
+                    <td>{{ $city->Used ? '是' : '否' }}</td>
                     <td>{{ $city->Seq }}</td>
                     <td>
                         <a href="{{ route('cities.edit', ['id' => $city->id, 'page' => $cities->currentPage()]) }}">Edit</a>
@@ -42,6 +50,6 @@
         </tbody>
     </table>
 
-    {{ $cities->links() }}
+    {{  $cities->links() }}
 </body>
 </html>

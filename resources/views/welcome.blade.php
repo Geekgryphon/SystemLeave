@@ -45,5 +45,16 @@
             6. page的參數可以透過用hidden 或 get一直丟參數， 使用Session儲存或資料庫儲存都會造成伺服器負擔
             7. 非藏有使用者個資的資料表主key可以使用 數字遞增或比較簡單的方式來產生，反之會建議用GUID
             8. FP和OOP會偏向使用FP
+
+            縣市的檢視頁面, 一頁顯示10筆資料 可丟入 文字進行搜尋和頁數
+
+            檢視頁面
+            1. 建立blade.php
+            2. 寫入route路徑
+
+            $request->input('')  // 取得參數的內容
+            $request->has('')
+            $request->filled('') // 參數不為空才會進入
+
     </body>
 </html>

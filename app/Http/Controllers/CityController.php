@@ -7,28 +7,47 @@ use App\Models\City;
 
 class CityController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index(Request $request)
     {
         $perPage = 10;
-        $currentPage = $request->input('page', 1);
-        $cities = City::paginate($perPage);
-        return view('cities.index', compact('cities', 'currentPage'));
+        $SrhName = $request->input('Name');
+
+        if($request->filled('Name') && $request->filled('page')){
+            $currentPage = $request->input('page');
+            $cities = City::query();
+            $cities->where('Name', 'like', '%' . $SrhName .'%');
+            $cities = $cities->paginate($perPage);
+            $cities->appends(['Name' => $SrhName]);
+            return view('cities.index',compact('cities', 'currentPage'));
+        }else if($request->filled('Name')){
+            $currentPage = $request->input('page');
+            $cities = City::query();
+            $cities->where('Name', 'like', '%' . $SrhName .'%');
+            $cities = $cities->paginate($perPage);
+            $cities->appends(['Name' => $SrhName]);
+            return view('cities.index',compact('cities', 'currentPage'));
+        }else if($request->filled('page')){
+            $currentPage = $request->input('page');
+            $cities = City::query();
+            $cities = $cities->paginate($perPage);
+            $cities->appends(['Name' => $SrhName]);
+            return view('cities.index',compact('cities', 'currentPage'));
+        }else{
+            // 一開始進入到首頁的時候
+            $currentPage = $request->input('page', 1);
+            $cities = City::paginate($perPage);
+            $cities->appends(['Name' => $SrhName]);
+            return view('cities.index', compact('cities', 'currentPage'));
+        }
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('cities.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         // 驗證表單數據

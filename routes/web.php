@@ -18,6 +18,9 @@ Route::get('/cityareas/{id}/edit', [CityAreaController::class, 'edit'])->name('c
 Route::post('/cityareas/{id}', [CityAreaController::class, 'update'])->name('cityareas.update');
 Route::delete('/cityareas/{id}', [CityAreaController::class, 'destroy'])->name('cityareas.destroy');
 
+Route::get('/Hello', function(){
+    return view('Hello');
+});
 
 Route::get('/', function () {
     return view('welcome');

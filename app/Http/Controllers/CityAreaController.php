@@ -11,13 +11,13 @@ class CityAreaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $perPage = 10;
-        // $currentPage = $request->input('page', 1);
-        // $cityareas = CityArea::paginate($perPage);
-        return view('cityareas.index');
-        //, compact('cityareas', 'currentPage')
+        $currentPage = $request->input('page', 1);
+        $cityareas = CityArea::paginate($perPage);
+        return view('cityareas.index', compact('cityareas', 'currentPage'));
+        
     }
 
     /**

@@ -10,7 +10,12 @@ class City extends Model
     use HasFactory;
     protected $fillable = ['PostalCode','Name', 'Used', 'Seq'];
 
+    protected $table = 'cities';
+    // protected $primaryKey = '';
+    // protected $keyType = 'string'; // 主key的資料型態
+
     public function cityAreas(){
         return $this->hasMany(CityArea::class);
     }
 }
+
