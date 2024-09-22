@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style type="text/css">
-        .pagination img {
-            max-width: 100%; /* 確保圖片不會超過按鈕的大小 */
-            height: auto;    /* 保持圖片的比例 */
-            display: block;  /* 使圖片在按鈕內部居中 */
-        }
-    </style>
+    @vite('resources/css/app.css')
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <h3>街區檢視畫面</h3>
+
+    <form action="{{ route('cityareas.index') }}" method="GET">
+        <input type="text" name="Name" id="Name" value="{{ request('Name') }}">
+        <button type="submit">搜尋</button>
+    </form>
 
     @if (session('success'))
         <p>{{ session('success') }}</p>
@@ -47,6 +47,9 @@
             @endforeach
         </tbody>
     </table>
+
+    <a href="{{ route('cityareas.create') }}" class="btn btn-primary">新增</a>
+    <br/>
 
     {{ $cityareas->links() }}
 

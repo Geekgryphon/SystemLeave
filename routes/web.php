@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CityAreaController;
+use App\Http\Controllers\CityStreetController;
 
 Route::get('/cities', [CityController::class, 'index'])->name('cities.index');
 Route::get('/cities/create', [CityController::class, 'create'])->name('cities.create');
@@ -18,9 +19,12 @@ Route::get('/cityareas/{id}/edit', [CityAreaController::class, 'edit'])->name('c
 Route::post('/cityareas/{id}', [CityAreaController::class, 'update'])->name('cityareas.update');
 Route::delete('/cityareas/{id}', [CityAreaController::class, 'destroy'])->name('cityareas.destroy');
 
-Route::get('/Hello', function(){
-    return view('Hello');
-});
+Route::get('/citystreets', [CityStreetController::class, 'index'])->name('citystreets.index');
+Route::get('/citystreets/create', [CityStreetController::class, 'create'])->name('citystreets.create');
+Route::post('/citystreets', [CityStreetController::class, 'store'])->name('citystreets.store');
+Route::get('/citystreets/{id}/edit', [CityStreetController::class, 'edit'])->name('citystreets.edit');
+Route::post('/citystreets/{id}', [CityStreetController::class, 'update'])->name('citystreets.update');
+Route::delete('/citystreets/{id}', [CityStreetController::class, 'destroy'])->name('citystreets.destroy');
 
 Route::get('/', function () {
     return view('welcome');

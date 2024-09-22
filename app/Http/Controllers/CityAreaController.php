@@ -14,9 +14,21 @@ class CityAreaController extends Controller
     public function index(Request $request)
     {
         $perPage = 10;
-        $currentPage = $request->input('page', 1);
-        $cityareas = CityArea::paginate($perPage);
-        return view('cityareas.index', compact('cityareas', 'currentPage'));
+
+        if($request->filled('Name')){
+            $currentPage = $request->input('page', 1);
+            $cityareas = CityArea::query();
+            $cityareas->where('Name', 'like', '%' . $request->input('Name') . '%');
+            $cityareas = $cityareas->paginate($perPage);
+            $cityareas->appends(['Name' => $request->input('Name')]);
+            return view('cityareas.index', compact('cityareas', 'currentPage'));
+        }else{
+            $currentPage = $request->input('page', 1);
+            $cityareas = CityArea::paginate($perPage);
+            return view('cityareas.index', compact('cityareas', 'currentPage'));
+        }
+        
+        
         
     }
 
@@ -85,7 +97,7 @@ class CityAreaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request, string $id)
     {
         $cityarea = CityArea::findOrFail($id);
         $cityarea->delete();
