@@ -11,7 +11,7 @@ class City extends Model
     protected $fillable = ['PostalCode','Name', 'Used', 'Seq'];
 
     protected $table = 'cities';
-    // protected $primaryKey = '';
+    // protected $primaryKey = ''; 默認是id 可透過定義來修正
     // protected $keyType = 'string'; // 主key的資料型態
 
     public function cityAreas(){

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ApprovalStatus extends Model
 {
     use HasFactory;
+    protected $fillable = ['','', '', ''];
+
 }
