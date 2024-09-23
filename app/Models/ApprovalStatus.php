@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class ApprovalStatus extends Model
 {
     use HasFactory;
-    protected $fillable = ['','', '', ''];
 
+    protected $table = 'ApprovalCode';
+    protected $fillable = ['Name','ApprovalCode', 'Used', 'Seq'];
+
+    public function leaveForms(){
+        return $this->hasMany(LeaveForm::class);
+    }
 }
