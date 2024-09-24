@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('BirthDay');
             $table->string('CityID');
             $table->string('CityAreaID');
-            $table->string('StreetID');
+            $table->string('CityStreetID');
             $table->string('Address');
             $table->date('StartDate');
             $table->date('EndDate');

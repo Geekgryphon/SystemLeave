@@ -14,4 +14,10 @@ class CityStreet extends Model
     public function cityarea(){
         return $this->belongsTo(CityArea::class);
     }
+
+    public function employee(){
+        return $this->hasMany(Employee::class);
+    }
+
+    
 }

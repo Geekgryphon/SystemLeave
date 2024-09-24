@@ -10,6 +10,7 @@ class ApprovalStatus extends Model
     use HasFactory;
 
     protected $table = 'ApprovalCode';
+    protected $primaryKey = 'id';
     protected $fillable = ['Name','ApprovalCode', 'Used', 'Seq'];
 
     public function leaveForms(){

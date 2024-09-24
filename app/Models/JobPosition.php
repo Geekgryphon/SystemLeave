@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class JobPosition extends Model
 {
     use HasFactory;
+
+    protected $table = 'JobPosition';
+    protected $primaryKey = 'id';
+    protected $fillable = ['Title','EngTitle', 'Used', 'Seq'];
+
 }
