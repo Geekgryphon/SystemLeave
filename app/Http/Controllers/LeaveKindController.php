@@ -19,7 +19,7 @@ class LeaveKindController extends Controller
      */
     public function create()
     {
-        //
+        return view('leavekinds.create');
     }
 
     /**
