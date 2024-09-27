@@ -12,8 +12,11 @@ class JobHistory extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['Account','JobPositionID', 'BeginDate', 'EndDate'];
 
-    public function employee()
-    {
+    public function employee(){
         return $this->belongsTo(Employee::class);
+    }
+
+    public function jobposition(){
+        return $this->belongsTo(JobPosition::class);
     }
 }

@@ -10,7 +10,7 @@ class LeaveApprovalStage extends Model
     use HasFactory;
 
     protected $table = 'LeaveApprovalStage';
-    protected $fillable = ['LeaveFormNo', 'Title','Step', 'Status', 'Memo', 'SignTime'];
+    protected $fillable = ['LeaveFormNo', 'Account','Step', 'Status', 'Memo', 'SignTime'];
 
     public function leaveform(){
         return $this->belongsTo(LeaveForm::class);

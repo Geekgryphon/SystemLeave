@@ -13,7 +13,7 @@ class JobPosition extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['Title','EngTitle', 'Used', 'Seq'];
 
-    public function jobposition(){
+    public function jobhistory(){
         return $this->hasMany(JobHistory::class);
     }
 

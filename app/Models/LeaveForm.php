@@ -26,4 +26,8 @@ class LeaveForm extends Model
     public function proxy(){
         return $this->belongsTo(Employee::class);
     }
+
+    public function approvalstatus(){
+        return $this->belongTo(ApprovalStatus::class);
+    }
 }

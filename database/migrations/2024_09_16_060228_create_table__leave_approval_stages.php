@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('LeaveApprovalStages', function (Blueprint $table) {
             $table->string('LeaveFormNo');
+            $table->string('Account');
             $table->integer('Step');
             $table->string('Status');
             $table->string('Memo');
