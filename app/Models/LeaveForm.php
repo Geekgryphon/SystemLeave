@@ -28,6 +28,6 @@ class LeaveForm extends Model
     }
 
     public function approvalstatus(){
-        return $this->belongTo(ApprovalStatus::class);
+        return $this->hasmany(ApprovalStatus::class);
     }
 }

@@ -9,6 +9,7 @@ class CityStreet extends Model
 {
     use HasFactory;
     protected $table = 'citystreets';
+    protected $primaryKey = 'id';
     protected $fillable = ['PostalCode', 'CityAreaID', 'Name', 'Used', 'Seq'];
 
     public function cityarea(){

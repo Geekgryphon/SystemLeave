@@ -24,4 +24,16 @@ class Employee extends Model
     public function citystreet(){
         return $this->hasOne(CityStreet::class);
     }
+
+    public function leaveform(){
+        return $this->hasMany(LeaveForm::class);
+    }
+
+    public function jobhistory(){
+        return $this->hasMany(JobHistory::class);
+    }
+
+    public function leaveapprovalstage(){
+        return $this->hasMany(LeaveApprovalStage::class);
+    }
 }
