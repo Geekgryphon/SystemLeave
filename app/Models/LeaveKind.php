@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class LeaveKind extends Model
 {
     use HasFactory;
-    protected $table = "LeaveKind";
+    protected $table = "leave-kinds";
     protected $primaryKey = 'id'; 
-    protected $fillable = ["id","Name","Seq","Used"];
+    protected $fillable = ["id","name","seq","used"];
+    public $timestamps = true;
 
-    public function leaveform(){
-        return $this->hasmany(LeaveKind::class);
+    public function leaveForms(){
+        return $this->hasmany(LeaveForm::class, 'leave_kind_id');
     }
 }

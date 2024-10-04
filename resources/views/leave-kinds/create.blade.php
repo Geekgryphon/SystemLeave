@@ -10,16 +10,13 @@
 </head>
 <body>
     <h3>新增假別種類</h3>
-    <form action="" method="POST">
+    <form action="{{ route('leave-kinds.store') }}" method="POST">
         @csrf
-        <label for="Name">假別名稱</label>
-        <input type="text" name="Name">
-        <br/>
-        <label for="Seq">排序</label>
-        <input type="number" name="Seq">
-        <br/>
-        <br/>
+        <label for="name">假別名稱:</label>
+        <input type="text" name="name">
+        <br/><br/>
         <button type="submit" class="btn btn-primary">新增</button>
+        <a href="{{ route('leave-kinds.index') }}" class="btn btn-secondary">取消</a>
     </form>
 </body>
 </html>

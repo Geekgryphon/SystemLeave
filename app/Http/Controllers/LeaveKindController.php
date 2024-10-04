@@ -12,8 +12,9 @@ class LeaveKindController extends Controller
      */
     public function index()
     {
+        // compact 把變數和其值存成陣列
         $leavekinds = LeaveKind::all();
-        return request()->json($leavekinds);
+        return view('leave-kinds.index',compact('leavekinds'));
     }
 
     /**
@@ -21,7 +22,7 @@ class LeaveKindController extends Controller
      */
     public function create()
     {
-        return view('leavekinds.create');
+        return view('leave-kinds.create');
     }
 
     /**
@@ -29,21 +30,22 @@ class LeaveKindController extends Controller
      */
     public function store(Request $request)
     {
-        // 資料驗證
-        // 從資料庫取得資料數量並產生排序
 
-        $leavekind = LeaveKind::create([
-            'Name' => '',
+        $validatedData = $request->validate([
+            'name' => 'required|string'
         ]);
+
+        $seq = LeaveKind::count() + 1;
+
+        LeaveKind::create([
+            'name' => $validatedData['name'],
+            'seq' => $seq,
+            'used' => 1,
+        ]);
+
+        return  redirect()->route('leave-kinds.index')->with('success','假別已建立完成。');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -71,19 +73,4 @@ class LeaveKindController extends Controller
         return redirect()->route('leavekinds.index')->with('success','假別資料更新成功');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        $leavekind = LeaveKind::find($id);
-
-        if(!$leavekind){
-            return response()->json(['message' => '找不到該假別資料'], 404);
-        }
-
-        $leavekind->delete();
-
-        return redirect()->route('leavekinds.index')->with('success', '假別已刪除完成!');
-    }
 }

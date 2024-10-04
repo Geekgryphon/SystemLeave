@@ -47,6 +47,16 @@
             8. FP和OOP會偏向使用FP
             9. 新增或刪除都不用保留搜尋項，編輯要
 
+            1. 資料表名稱一般都為複數且為小寫，多個單字用底線分開 如: leave_kinds
+            2. Model的class會命名為 如: LeaveKind
+            3. Controller 命名範例 LeaveKindController
+            4. Route 命名範例 leave-kinds/
+            5. 資料表的外來鍵 如:leave_kind_id
+            6. Model 命名範例 LeaveKind 
+            7. views的資料夾命名範例 leave-kinds
+            8. 資料表欄位名稱皆為小寫，且如果多個單字用_連接
+            
+
             縣市的檢視頁面, 一頁顯示10筆資料 可丟入 文字進行搜尋和頁數
 
             檢視頁面

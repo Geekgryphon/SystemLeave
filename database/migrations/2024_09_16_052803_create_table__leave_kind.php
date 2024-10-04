@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('LeaveKind', function (Blueprint $table) {
+        Schema::create('leave-kinds', function (Blueprint $table) {
             $table->id();
-            $table->string('Name');
-            $table->integer('Seq');
-            $table->boolean('Used');
+            $table->string('name');
+            $table->integer('seq');
+            $table->boolean('used');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('LeaveKind');
+        Schema::dropIfExists('leave-kinds');
     }
 };
