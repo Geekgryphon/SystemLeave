@@ -9,9 +9,10 @@ class ApprovalStatus extends Model
 {
     use HasFactory;
 
-    protected $table = 'ApprovalCode';
+    protected $table = 'approval-status';
     protected $primaryKey = 'id';
-    protected $fillable = ['Name','ApprovalCode', 'Used', 'Seq'];
+    protected $fillable = ['name','approval_code', 'used', 'seq'];
+    public $timestamps = false;
 
     public function leaveForms(){
         return $this->hasMany(LeaveForm::class);

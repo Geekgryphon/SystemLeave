@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ApprovalCode', function (Blueprint $table) {
+        Schema::create('approval-status', function (Blueprint $table) {
             $table->id();
-            $table->string('Name');
-            $table->string('ApprovalCode');
-            $table->boolean('Used');
-            $table->integer('Seq');
+            $table->string('name');
+            $table->string('approval_code');
+            $table->boolean('used');
+            $table->integer('seq');
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ApprovalCode');
+        Schema::dropIfExists('approval-status');
     }
 };

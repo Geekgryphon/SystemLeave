@@ -53,7 +53,7 @@ class LeaveKindController extends Controller
     public function edit(string $id)
     {
         $leavekind = LeaveKind::find($id);
-        return view('users.edit', compact('leavekind'));
+        return view('leave-kinds.edit', compact('leavekind'));
     }
 
     /**
@@ -62,15 +62,19 @@ class LeaveKindController extends Controller
     public function update(Request $request, string $id)
     {
         $leavekind = LeaveKind::find($id);
-        if(!$leavekind){
+        // if(!$leavekind){
 
-        }
+        // }
 
         // 驗證
+        $leavekind->name = $request->input('name');
+        $leavekind->used = $request->input('used') == null ? 0 : 1;
+        $leavekind->seq = $request->input('seq');
 
-        $leavekind->update();
 
-        return redirect()->route('leavekinds.index')->with('success','假別資料更新成功');
+        $leavekind->save();
+
+        return redirect()->route('leave-kinds.index')->with('success','假別資料更新成功');
     }
 
 }

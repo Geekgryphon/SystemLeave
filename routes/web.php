@@ -12,7 +12,7 @@ use App\Http\Controllers\LeaveFormController;
 use App\Http\Controllers\LeaveKindController;
 use App\Http\Controllers\SignStateController;
 
-Route::resource('approvalstatus', ApprovalStatusController::class);
+Route::resource('approval-status', ApprovalStatusController::class);
 
 Route::get('/cities', [CityController::class, 'index'])->name('cities.index');
 Route::get('/cities/create', [CityController::class, 'create'])->name('cities.create');
