@@ -40,7 +40,7 @@ Route::resource('jobhistorys', JobHistoryController::class);
 Route::resource('jobpositions', JobPositionController::class);
 Route::resource('leaveforms', LeaveFormController::class);
 Route::resource('leave-kinds', LeaveKindController::class);
-Route::resource('signstates', SignStateController::class);
+Route::resource('sign-states', SignStateController::class);
 
 
 Route::get('/', function () {

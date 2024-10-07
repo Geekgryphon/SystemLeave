@@ -33,7 +33,7 @@
                 </div>
             @endforeach
         @endif
-        </tbody>
-    </table>
+        <br/><br/>
+        <div><a href="{{ route('leave-kinds.create') }}" class="btn btn-primary btn-sm">新增</a></div>
 </body>
 </html>

@@ -9,7 +9,7 @@ class SignState extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id','Name', 'SignCode', 'Used', 'Seq'];
+    protected $fillable = ['id','name', 'signCode', 'used', 'seq'];
     protected $primaryKey = 'id';
     protected $keyType = 'int';
 

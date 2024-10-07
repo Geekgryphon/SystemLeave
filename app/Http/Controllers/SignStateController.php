@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\SignState;
 
 class SignStateController extends Controller
 {
@@ -11,7 +12,8 @@ class SignStateController extends Controller
      */
     public function index()
     {
-        //
+       $signstates =  SignState::all();
+       return view('sign-states.index', compact('signstates'));
     }
 
     /**
@@ -19,7 +21,7 @@ class SignStateController extends Controller
      */
     public function create()
     {
-        //
+        return view('sign-states.create');
     }
 
     /**
@@ -29,14 +31,7 @@ class SignStateController extends Controller
     {
         //
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -54,11 +49,4 @@ class SignStateController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

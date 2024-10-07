@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('SignState', function (Blueprint $table) {
+        Schema::create('sign-states', function (Blueprint $table) {
             $table->id();
-            $table->string('Name');
-            $table->string('SignCode');
-            $table->boolean('Used');
-            $table->integer('Seq');
+            $table->string('name');
+            $table->string('signcode');
+            $table->boolean('used');
+            $table->integer('seq');
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('SignState');
+        Schema::dropIfExists('sign-states');
     }
 };
