@@ -9,9 +9,11 @@ class SignState extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id','name', 'signCode', 'used', 'seq'];
+    protected $table = "sign-states";
+    protected $fillable = ['id','name', 'signcode', 'used', 'seq'];
     protected $primaryKey = 'id';
     protected $keyType = 'int';
+    public $timestamps = false;
 
     public function leaveapprovalstage(){
         return $this->hasMany(LeaveApprovalStage::class);

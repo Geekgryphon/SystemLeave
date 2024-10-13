@@ -36,9 +36,9 @@ Route::post('/citystreets/{id}', [CityStreetController::class, 'update'])->name(
 Route::delete('/citystreets/{id}', [CityStreetController::class, 'destroy'])->name('citystreets.destroy');
 
 Route::resource('employees', EmployeeController::class);
-Route::resource('jobhistorys', JobHistoryController::class);
-Route::resource('jobpositions', JobPositionController::class);
-Route::resource('leaveforms', LeaveFormController::class);
+Route::resource('job-historys', JobHistoryController::class);
+Route::resource('job-positions', JobPositionController::class);
+Route::resource('leave-forms', LeaveFormController::class);
 Route::resource('leave-kinds', LeaveKindController::class);
 Route::resource('sign-states', SignStateController::class);
 

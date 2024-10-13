@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\JobPosition;
 
 class JobPositionController extends Controller
 {
@@ -11,7 +12,8 @@ class JobPositionController extends Controller
      */
     public function index()
     {
-        //
+        $jobpositions = JobPosition::all(); 
+        return view('job-positions.index',compact('jobpositions'));
     }
 
     /**
@@ -19,7 +21,7 @@ class JobPositionController extends Controller
      */
     public function create()
     {
-        //
+        return view('job-positions.create');
     }
 
     /**
@@ -27,15 +29,20 @@ class JobPositionController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $validatedData = $request->validate([
+            'title' => 'required'
+        ]);
+        
+        $seq = JobPosition::count() + 1;
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        JobPosition::create([
+            'title' => $request->input('title'),
+            'eng_title' => $request->input('eng_title'),
+            'used' => 1,
+            'seq' => $seq
+        ]);
+
+        return redirect()->route('job-positions.index')->with('success','工作名稱新增成功');
     }
 
     /**
@@ -43,7 +50,8 @@ class JobPositionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $jobposition = JobPosition::find($id);
+        return view('job-positions.edit', compact('jobposition'));
     }
 
     /**
@@ -51,14 +59,15 @@ class JobPositionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $jobposition = JobPosition::find($id);
+
+        $jobposition->title = $request->input('title');
+        $jobposition->eng_title = $request->input('eng_title');
+        $jobposition->used = $request->input('used') == null ? 0 : 1;
+        $jobposition->seq = $request->input('seq');
+        
+        $jobposition->save();
+        return redirect()->route('job-positions.index')->with('success','工作名稱更新成功');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

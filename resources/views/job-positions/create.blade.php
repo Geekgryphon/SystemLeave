@@ -9,17 +9,17 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>新增關卡審核狀態</h3>
-    <form action="{{ route('sign-states.store') }}" method="POST">
+    <h3>新增工作職位</h3>
+    <form action="{{ route('job-positions.store') }}" method="POST">
         @csrf
-        <label for="name">關卡審核名稱:</label>
-        <input type="text" name="name">
+        <label for="title">工作職稱名稱:</label>
+        <input type="text" name="title">
         <br/><br/>
-        <label for="signcode">關卡審核代碼:</label>
-        <input type="text" name="signcode">
+        <label for="eng_title">英文工作職稱名稱:</label>
+        <input type="text" name="eng_title">
         <br/><br/>
         <button type="submit" class="btn btn-primary">新增</button>
-        <a href="{{ route('sign-states.index') }}" class="btn btn-secondary">取消</a>
+        <a href="{{ route('job-positions.index') }}" class="btn btn-secondary">取消</a>
     </form>
 </body>
 </html>

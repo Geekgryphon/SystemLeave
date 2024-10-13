@@ -8,34 +8,38 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>顯示審核狀態</h3>
+    <h3>顯示工作職稱</h3>
     <div style="display:inline-flex;">
-        <div>審核代碼</div>
-        <div>審核名稱</div>
+        <div></div>
+        <div>工作職稱</div>
+        <div>英文工作職稱</div>
         <div>使用狀態</div>
         <div>排列順序</div>
     </div>
 
-    @if (count($signstates) == 0)
+
+    
+
+    @if (count($jobpositions) == 0)
         <br/>
         <div style="display:inline-flex;">
             沒有資料喔
         </div>
     @else
-        @foreach($signstates as $signstate)
+        @foreach($jobpositions as $jobposition)
             <br/>
             <div style="display:inline-flex;">
-                <div><a href="{{ route('sign-states.edit', $signstate->id) }}" class="btn btn-warning btn-sm">編輯</a></div>
-                <div>{{ $signstate->signcode }}</div>
-                <div>{{ $signstate->name }}</div>
-                <div>{{ $signstate->used ? '是' : '否' }}</div>
-                <div>{{ $signstate->seq }}</div>
+                <div><a href="{{ route('job-positions.edit', $jobposition->id) }}" class="btn btn-warning btn-sm">編輯</a></div>
+                <div>{{ $jobposition->title }}</div>
+                <div>{{ $jobposition->eng_title }}</div>
+                <div>{{ $jobposition->used ? '是' : '否' }}</div>
+                <div>{{ $jobposition->seq }}</div>
             </div>
         @endforeach
     @endif
 
     <br/><br/>
-    <a href="{{ route('sign-states.create') }}" class="btn btn-primary">新增</a>
+    <a href="{{ route('job-positions.create') }}" class="btn btn-primary">新增</a>
     
 </body>
 </html>

@@ -9,9 +9,11 @@ class JobPosition extends Model
 {
     use HasFactory;
 
-    protected $table = 'JobPosition';
+    protected $table = 'job-positions';
     protected $primaryKey = 'id';
-    protected $fillable = ['Title','EngTitle', 'Used', 'Seq'];
+    protected $fillable = ['title','eng_title', 'used', 'seq'];
+    public $timestamps = false;
+    
 
     public function jobhistory(){
         return $this->hasMany(JobHistory::class);
