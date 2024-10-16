@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->string('PostalCode');
-            $table->string('Name');
-            $table->boolean('Used')->default(true);
-            $table->integer('Seq');
+            $table->string('postalcode');
+            $table->string('name');
+            $table->boolean('used')->default(true);
+            $table->integer('seq');
             $table->timestamps();
         });
     }
