@@ -22,34 +22,34 @@
     </form>
     <br/>
 
-    <table>
-        <thead>
-            <tr>
-                <th>縣市郵遞區號</th>
-                <th>縣市名稱</th>
-                <th>使用中</th>
-                <th>排列順序</th>
-            </tr>
-        </thead>
-        <tbody>
+        <div>
+            <div style="display:inline-flex;">
+                <div>縣市郵遞區號</div>
+                <div>縣市名稱</div>
+                <div>使用中</div>
+                <div>排列順序</div>
+            </div>
+            <br/>
+        
             @foreach ($cities as $city)
-                <tr>
-                    <td>{{ $city->PostalCode }}</td>
-                    <td>{{ $city->Name }}</td>
-                    <td>{{ $city->Used ? '是' : '否' }}</td>
-                    <td>{{ $city->Seq }}</td>
-                    <td>
-                        <a href="{{ route('cities.edit', ['id' => $city->id, 'page' => $cities->currentPage()]) }}">Edit</a>
+                <div style="display:inline-flex;">
+                    <div>{{ $city->postalcode }}</div>
+                    <div>{{ $city->name }}</div>
+                    <div>{{ $city->used ? '是' : '否' }}</div>
+                    <div>{{ $city->seq }}</div>
+                    <div>
+                        <a href="{{ route('cities.edit', ['id' => $city->id, 'page' => $cities->currentPage()]) }}" class="btn btn-warning btn-sm">編輯</a>
                         <form action="{{ route('cities.destroy', ['id' => $city->id, 'page' => $cities->currentPage()]) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" onclick="return confirm('Are you sure you want to delete this city?');">Delete</button>
+                            <button type="submit" class="btn btn-danger">刪除</button>
                         </form>
-                    </td>
-                </tr>
+                    </div>
+                </div>
+                <br/>
             @endforeach
-        </tbody>
-    </table>
+            
+        </div>
 
     <a href="{{ route('cities.create') }}" class="btn btn-primary">新增</a>
     <br/>

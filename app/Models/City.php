@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class City extends Model
 {
     use HasFactory;
-    protected $fillable = ['PostalCode','Name', 'Used', 'Seq'];
+    protected $fillable = ['postalcode','name', 'used', 'seq'];
 
     protected $table = 'cities';
     protected $primaryKey = 'id'; // 默認是id 可透過定義來修正

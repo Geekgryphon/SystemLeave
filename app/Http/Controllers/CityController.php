@@ -11,6 +11,7 @@ class CityController extends Controller
     public function index(Request $request)
     {
         $perPage = 10;
+<<<<<<< HEAD
         $SrhName = $request->input('Name','');
         $currentPage = $request->input('page', 1);
 
@@ -23,6 +24,17 @@ class CityController extends Controller
         $cities->appends(['Name' => $SrhName]);
         return view('cities.index', compact('cities', 'currentPage'));
 
+=======
+        $currentPage = $request->input('page', 1);
+        $SrhName = $request->input('name');
+        $cities = City::query();
+        if($request->filled('name')){
+            $cities->where('name', 'like', '%' . $SrhName .'%');
+        }
+        $cities = $cities->paginate($perPage);
+        $cities->appends(['Name' => $SrhName]);
+        return view('cities.index',compact('cities', 'currentPage'));
+>>>>>>> ab6ff06d11c4f2fbf48b5bebebb5fe13d46d2997
     }
 
     public function create()
@@ -35,10 +47,10 @@ class CityController extends Controller
         // 驗證表單數據
 
         City::create([
-            'PostalCode' => '900',
-            'Name' => $request->Name,
-            'Used' => "1",
-            'Seq' => $request->Seq,
+            'postalcode' => '900',
+            'name' => $request->name,
+            'used' => "1",
+            'seq' => $request->seq,
         ]);
 
         return redirect()->route('cities.index')->with('success', '縣市新增成功');
@@ -46,13 +58,6 @@ class CityController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -73,7 +78,9 @@ class CityController extends Controller
     public function update(Request $request, string $id)
     {
         $city = City::findOrFail($id);
-        $city->update($request->all());
+        $updatedata = $request->all();
+        $updatedata['used'] = ($request->input('used') ? 1 : 0);
+        $city->update($updatedata);
         $currentPage = $request->input('page', 1);
         return redirect()->route('cities.index', ['page' => $currentPage])->with('success', '縣市更新完成');
     }
