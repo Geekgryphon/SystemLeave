@@ -11,35 +11,17 @@ class CityController extends Controller
     public function index(Request $request)
     {
         $perPage = 10;
-        $SrhName = $request->input('Name');
+        $SrhName = $request->input('Name','');
+        $currentPage = $request->input('page', 1);
 
-        if($request->filled('Name') && $request->filled('page')){
-            $currentPage = $request->input('page');
-            $cities = City::query();
+        $cities = City::query();
+        if($request->filled('Name')){
             $cities->where('Name', 'like', '%' . $SrhName .'%');
-            $cities = $cities->paginate($perPage);
-            $cities->appends(['Name' => $SrhName]);
-            return view('cities.index',compact('cities', 'currentPage'));
-        }else if($request->filled('Name')){
-            $currentPage = $request->input('page');
-            $cities = City::query();
-            $cities->where('Name', 'like', '%' . $SrhName .'%');
-            $cities = $cities->paginate($perPage);
-            $cities->appends(['Name' => $SrhName]);
-            return view('cities.index',compact('cities', 'currentPage'));
-        }else if($request->filled('page')){
-            $currentPage = $request->input('page');
-            $cities = City::query();
-            $cities = $cities->paginate($perPage);
-            $cities->appends(['Name' => $SrhName]);
-            return view('cities.index',compact('cities', 'currentPage'));
-        }else{
-            // 一開始進入到首頁的時候
-            $currentPage = $request->input('page', 1);
-            $cities = City::paginate($perPage);
-            $cities->appends(['Name' => $SrhName]);
-            return view('cities.index', compact('cities', 'currentPage'));
         }
+
+        $cities = $cities->paginate($perPage);
+        $cities->appends(['Name' => $SrhName]);
+        return view('cities.index', compact('cities', 'currentPage'));
 
     }
 
