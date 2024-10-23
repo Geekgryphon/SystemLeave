@@ -11,20 +11,6 @@ class CityController extends Controller
     public function index(Request $request)
     {
         $perPage = 10;
-<<<<<<< HEAD
-        $SrhName = $request->input('Name','');
-        $currentPage = $request->input('page', 1);
-
-        $cities = City::query();
-        if($request->filled('Name')){
-            $cities->where('Name', 'like', '%' . $SrhName .'%');
-        }
-
-        $cities = $cities->paginate($perPage);
-        $cities->appends(['Name' => $SrhName]);
-        return view('cities.index', compact('cities', 'currentPage'));
-
-=======
         $currentPage = $request->input('page', 1);
         $SrhName = $request->input('name');
         $cities = City::query();
@@ -34,7 +20,6 @@ class CityController extends Controller
         $cities = $cities->paginate($perPage);
         $cities->appends(['Name' => $SrhName]);
         return view('cities.index',compact('cities', 'currentPage'));
->>>>>>> ab6ff06d11c4f2fbf48b5bebebb5fe13d46d2997
     }
 
     public function create()
