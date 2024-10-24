@@ -9,7 +9,7 @@ class CityArea extends Model
 {
     use HasFactory;
     protected $table = 'cityareas';
-    protected $fillable = ['PostalCode', 'CityID', 'Name', 'Used', 'Seq'];
+    protected $fillable = ['postalcode', 'city_id', 'name', 'used', 'seq'];
 
     public function city(){
         return $this->belongsTo(City::class);

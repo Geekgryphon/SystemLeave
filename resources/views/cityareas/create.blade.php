@@ -11,12 +11,12 @@
     <form action="{{ route('cityareas.store') }}" method="POST">
         @csrf
 
-        <label for="PostalCode">郵政區碼: </label>
-        <input type="text" id="PostalCode" name="PostalCode">
+        <label for="postalCode">郵政區碼: </label>
+        <input type="text" id="postalCode" name="postalCode">
         <br>
 
-        <label for="CityID">縣市: </label>
-        <select name="CityID" id="CityID">
+        <label for="cityID">縣市: </label>
+        <select name="cityID" id="CityID">
             <option value="">請選擇一個縣市</option>
             @foreach ($cities as $city)
                 <option value="{{ $city->id }}">{{ $city->Name }}</option>
@@ -24,12 +24,12 @@
         </select>
         <br/>
 
-        <label for="Name">街區名稱: </label>
-        <input type="text" id="Name" name="Name">
+        <label for="name">街區名稱: </label>
+        <input type="text" id="name" name="Name">
         <br/>
 
-        <label for="Seq">排列順序:</label>
-        <input type="number" id="Seq" name="Seq">
+        <label for="seq">排列順序:</label>
+        <input type="number" id="seq" name="seq">
         <br>
 
         <button type="submit">新增街區</button>

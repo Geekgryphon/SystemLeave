@@ -30,7 +30,7 @@ class CityController extends Controller
     public function store(Request $request)
     {
         // 驗證表單數據
-
+        
         City::create([
             'postalcode' => '900',
             'name' => $request->name,

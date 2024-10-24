@@ -12,12 +12,12 @@
 
     <form action="{{ route('cities.store') }}" method="POST">
         @csrf
-        <label for="Name">縣市名稱:</label>
-        <input type="text" id="Name" name="Name">
+        <label for="name">縣市名稱:</label>
+        <input type="text" id="name" name="name">
         <br>
         
-        <label for="Seq">排列順序:</label>
-        <input type="number" id="Seq" name="Seq">
+        <label for="seq">排列順序:</label>
+        <input type="number" id="seq" name="seq">
         <br>
         
         <button type="submit" class="btn btn-primary">新增縣市</button>
